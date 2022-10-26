@@ -1,44 +1,51 @@
 <template>
-    <div class="surface-card p-3 md:p-4 shadow-6 border-round w-full md:w-6 mx-6">
+    <div class="surface-card px-4 md:px-6 py-2 shadow-6 border-round w-full">
         <Toast />
-        <Card>
-            <template #title>
-                <div class="text-center">
-                    <p class="text-3xl text-white">Buku Tamu <span class="text-primary text-bold">Imani Prima</span></p>
-                    <hr class="mt-3 w-2">
+        <h1 class="text-3xl text-white">Subscribe untuk melihat lowongan kami</h1>
+        <hr>
+        <Form>
+            <div class="card">
+                <div class="mb-2">
+                    <label for="nama" class="block text-900 font-medium mb-2">Nama<span
+                            style="color:red;">*</span></label>
+                    <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama" />
+                    <ErrorMessage name="nama"><small style="color:red;">Nama harus diisi</small></ErrorMessage>
                 </div>
-            </template>
-            <template #content>
-                <Form>
-                <label for="nama" class="block text-900 font-medium mb-2">Nama<span style="color:red;">*</span></label>
-                <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama" />
-                <ErrorMessage name="nama"><small style="color:red;">Nama harus diisi</small></ErrorMessage>
-                <!-- <InputText id="nama" type="text" class="w-full mb-3" v-model="data.nama" /> -->
-
-                <label for="nohp" class="block text-900 font-medium mb-2">No. HP<span style="color:red;">*</span></label>
-                <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" />
-                <ErrorMessage name="nohp"><small style="color:red;">No HP harus diisi</small></ErrorMessage>
-                <!-- <InputText id="nohp" type="text" class="w-full mb-3" v-model="data.noHp" /> -->
-
-                <div class="formgrid grid">
-                    <div class="field col">
-                        <label for="jurusan" class="block text-900 font-medium mb-2">Jurusan<span style="color:red;">*</span></label>
-                        <Field class="w-full mb-3" id="jurusan" name="jurusan" :rules="isRequired" v-model="data.jurusan" />
-                        <ErrorMessage name="jurusan"><small style="color:red;">Jurusan harus diisi</small></ErrorMessage>
-                        <!-- <InputText id="jurusan" type="text" class="w-full mb-3" v-model="data.jurusan" /> -->
-                    </div>
-                    <div class="field col">
-                        <label for="Angkatan" class="block text-900 font-medium mb-2">Angkatan<span style="color:red;">*</span></label>
-                        <Field class="w-full mb-3" id="Angkatan" name="Angkatan" :rules="isRequired" v-model="data.angkatan" />
-                        <ErrorMessage name="Angkatan"><small style="color:red;">Angkatan harus diisi</small></ErrorMessage>
-                        <!-- <InputText id="Angkatan" type="text" class="w-full mb-3" v-model="data.angkatan" /> -->
+                <div class="mb-2">
+                    <label for="nohp" class="block text-900 font-medium mb-2">No. HP<span
+                            style="color:red;">*</span></label>
+                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" />
+                    <ErrorMessage name="nohp"><small style="color:red;">No HP harus diisi</small></ErrorMessage>
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="block text-900 font-medium mb-2">Email<span
+                            style="color:red;">*</span></label>
+                    <Field class="w-full mb-3" id="email" name="email" :rules="isRequired" v-model="data.email" />
+                    <ErrorMessage name="email"><small style="color:red;">email harus diisi</small></ErrorMessage>
+                </div>
+                <div class="mb-2">
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <label for="jurusan" class="block text-900 font-medium mb-2">Jurusan<span
+                                    style="color:red;">*</span></label>
+                            <Field class="w-full mb-3" id="jurusan" name="jurusan" :rules="isRequired"
+                                v-model="data.jurusan" />
+                            <ErrorMessage name="jurusan"><small style="color:red;">Jurusan harus diisi</small>
+                            </ErrorMessage>
+                        </div>
+                        <div class="field col">
+                            <label for="Angkatan" class="block text-900 font-medium mb-2">Angkatan<span
+                                    style="color:red;">*</span></label>
+                            <Field class="w-full mb-3" id="Angkatan" name="Angkatan" :rules="isRequired"
+                                v-model="data.angkatan" />
+                            <ErrorMessage name="Angkatan"><small style="color:red;">Angkatan harus diisi</small>
+                            </ErrorMessage>
+                        </div>
                     </div>
                 </div>
-                <Button label="Masuk" icon="pi pi-user" class="mt-3 p-button-warning" style="float:right"
-                    @click="masuk" />
-                </Form>
-            </template>
-        </Card>
+                <Button label="Masuk" icon="pi pi-user" class="p-button-warning mb-3" @click="masuk" />
+            </div>
+        </Form>
     </div>
 </template>
 
@@ -52,6 +59,7 @@ const data = reactive({
     nama: "",
     noHp: "",
     jurusan: "",
+    email: "",
     angkatan: ""
 });
 
@@ -68,8 +76,10 @@ const masuk = () => {
             phone: data.noHp,
             major: data.jurusan,
             generation: data.angkatan,
+            email: data.email,
         }).then(() => {
             toast.add({ severity: "info", summary: "Enjoy the Carnaval" });
+            location.href = "/jobs"
         })
     } catch (err) {
         console.log(err);
@@ -79,7 +89,7 @@ const masuk = () => {
 </script>
 
 <style>
-.mb-3{
+.mb-3 {
     height: 35px;
 }
 </style>
