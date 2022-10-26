@@ -26,7 +26,7 @@
         <div class="grid justify-content-center">
             <Card class="col-12 md:col-6 w-10 md:w-4 m-4 md:m-6 shadow-6" v-for="(job, index) in jobs" :key="index">
                 <template #content>
-                    <img :src="job.bg_image" alt="gambar" style="height: 10rem;">
+                    <img :src="job.bg_image" alt="gambar" class="w-12">
                     <h1 class="text-900 mb-3 font-medium">{{ job.nama }}</h1>
                     <p class="text-700 text-sm line-height-3">{{ job.deskripsi }}</p>
                     <Button label="Lihat Detail" class="p-button-sm p-button-outlined mt-4" />

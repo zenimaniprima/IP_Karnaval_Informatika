@@ -1,5 +1,9 @@
 <template>
   <div>
+    <Head>
+      <Title>Imani Prima Loker</Title>
+      <Link rel="icon" type="image/x-icon" href="http://presensi.imaniprima.co.id/assets/images/favicon.png"></Link>
+    </Head>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
