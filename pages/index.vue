@@ -7,7 +7,7 @@
                     <img src="~/assets/logo-putih.png" />
                 </AosVue>
                 <AosVue animation="zoom-in" :delay="500" :duration="500">
-                <p class="text-3xl text-white mb-4"><b>Saya Memiliki Kualifikasi</b></p>
+                <p class="text-3xl text-white mb-4"><b>Anda layak jadi asset kami</b></p>
                 </AosVue>
                     <BukuTamu />
             </section>
