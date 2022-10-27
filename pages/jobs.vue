@@ -19,10 +19,15 @@
     <div class="px-3 py-8 md:px-6 text-center block container" style="background-color: #21364A;">
 
         <div class="mb-2 font-bold text-5xl">
-            <span class="text-900">Lowongan Kerja, </span>
-            <span class="text-primary">PT. Imani Prima</span>
+            <AosVue animation="flip-up" :duration="500">
+                <span class="text-900">Lowongan Kerja, </span>
+                <span class="text-primary">PT. Imani Prima</span>
+            </AosVue>
         </div>
-        <div class="text-700 text-sm mb-3">jadilah bagian dari tim kami</div>
+        <AosVue animation="flip-down" :delay="500" :duration="500">
+            <div class="text-700 text-sm mb-3">jadilah bagian dari tim kami</div>
+        </AosVue>
+        <AosVue animation="slide-left" :delay="1000" :duration="1000">
         <div class="grid justify-content-center">
             <Card class="col-12 md:col-6 w-10 md:w-4 m-4 md:m-6 shadow-6" v-for="(job, index) in jobs" :key="index">
                 <template #content>
@@ -33,6 +38,7 @@
                 </template>
             </Card>
         </div>
+        </AosVue>
     </div>
 </template>
 

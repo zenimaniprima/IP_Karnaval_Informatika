@@ -1,7 +1,7 @@
 <template>
     <div class="surface-card px-4 md:px-6 py-2 shadow-6 border-round w-full">
         <Toast />
-        <h1 class="text-3xl text-white">Subscribe untuk melihat lowongan kami</h1>
+            <h1 class="text-3xl text-white">Subscribe untuk melihat lowongan kami</h1>
         <hr>
         <Form>
             <div class="card">
