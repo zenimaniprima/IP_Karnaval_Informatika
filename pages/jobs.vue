@@ -1,69 +1,60 @@
 <template>
-    <div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-center align-items-center">
-        <div class="align-items-center text-sm lg:flex mr-6">
-            <span class="line-height-3">🔥 like/follow/subscribe sosial media kami untuk mendapatkan
-                merchandise</span>
-        </div>
-        <div class="align-items-center lg:flex">
-            <span class="line-height-3 flex" style="cursor:pointer;">
-                <a href="https://www.facebook.com/PTImaniPrima/" target="_blank">
-                    <i class="pi pi-facebook mr-2" style="font-size: 1.4rem;" />
-                </a>
-                <a href="https://www.instagram.com/imaniprima/" target="_blank">
-                    <i class="pi pi-instagram" style="font-size: 1.4rem;" />
-                </a>
-            </span>
-        </div>
+    <div class="bg-bluegray-900 text-gray-100 p-3 text-center block container">
+        <AosVue animation="slide-down">
+            <div class="align-items-center col-12">
+                <span class="line-height-3">like/follow/subscribe semua sosial media kami untuk mendapatkan merchandise
+                    menarik</span>
+            </div>
+            <div class="align-items-center col-12">
+                <span class="line-height-3" style="cursor:pointer;">
+                    <a href="https://www.facebook.com/PTImaniPrima/" target="_blank">
+                        <Button iconClass="text-2xl md:text-3xl" icon="pi pi-facebook"
+                            class="p-button-rounded p-button-outlined mx-3" />
+                    </a>
+                    <a href="https://www.instagram.com/imaniprima/" target="_blank">
+                        <Button iconClass="text-2xl md:text-3xl" icon="pi pi-instagram"
+                            class="p-button-rounded p-button-outlined mx-3" />
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC9ONViZhn_fJLN9ciKDESzw/" target="_blank">
+                        <Button iconClass="text-2xl md:text-3xl" icon="pi pi-youtube"
+                            class="p-button-rounded p-button-outlined mx-3" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/pt-imani-prima/" target="_blank">
+                        <Button iconClass="text-2xl md:text-3xl" icon="pi pi-linkedin"
+                            class="p-button-rounded p-button-outlined mx-3" />
+                    </a>
+                </span>
+            </div>
+        </AosVue>
     </div>
-    <div class="px-3 py-8 md:px-6 text-center block container" style="background-color: #21364A;">
-        <div class="mb-2 font-bold text-5xl">
-            <AosVue animation="flip-up" :duration="500">
+    <div class="pb-6 md:pb-6 px-0 text-center block container" style="background-color: #129666;">
+        <div style="background-color: #129666;">
+            <img src="~/assets/Flyer_Revisi.jpg" alt="image" class="w-10 mt-6 shadow-6 rounded">
+        </div>
+        <div class="py-6 text-center">
+            <div class="px-4 md:px-0 font-bold text-4xl md:text-6xl">
                 <span class="text-900">Lowongan Kerja, </span>
-                <span class="text-primary">PT. Imani Prima</span>
-            </AosVue>
+                <span class="text-yellow-500">PT. Imani Prima</span>
+            </div>
+            <hr class="w-2 mt-4">
+            <p class="text-white md:text-2xl">jadilah bagian dari tim kami</p>
+            <NuxtLink to="https://imaniprima.co.id/careers/"><Button icon="pi pi-external-link"
+                    label="Lihat Lowongan Pekerjaan" class="p-button-lg p-button-warning p-button-outlined mt-4" />
+            </NuxtLink>
         </div>
-        <AosVue animation="flip-down" :delay="500" :duration="500">
-            <div class="text-700 text-sm mb-3">jadilah bagian dari tim kami</div>
-        </AosVue>
-        <AosVue animation="slide-left" :delay="1000" :duration="1000">
-        <div class="grid justify-content-center">
-            <Card class="col-12 md:col-6 p-0 w-10 md:w-4 m-4 md:m-6 shadow-6" v-for="(job, index) in jobs" :key="index">
-                <template #content>
-                    <h3 class="text-900 mb-3 font-medium">{{ job.nama }}</h3>
-                    <p class="text-700 text-sm line-height-3">{{ job.deskripsi }}</p>
-                    <Button label="Lihat Detail" class="p-button-sm p-button-outlined mt-4"
-                        @click="openModal(job.nama, job.lokasi, job.deskripsi, job.requirement)" />
-                </template>
-            </Card>
-            <Dialog :header="jobsModal.nama" v-model:visible="displayModal"
-                :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '50vw' }"
-                :content-style="{ padding: '30px', backgroundColor: '#21364A' }" :modal="true">
-                <span class="text-1xl"><b>Deskripsi :</b></span>
-                <p class="mb-4">{{ jobsModal.deskripsi }}</p>
-                <p class="text-1xl mb-3"><b>Lokasi :</b> {{ jobsModal.lokasi }}</p>
-                <span class="text-1xl"><b>Kualifikasi :</b></span>
-                <ul>
-                    <li v-for="(req, index) in jobsModal.requirement" :key="index">{{ req }}</li>
-                </ul>
-                <template #footer>
-                    <Button label="Oke" class="mt-4" icon="pi pi-check" @click="closeModal" autofocus />
-                </template>
-            </Dialog>
-        </div>
-        </AosVue>
-        <Button @click="openPosition('bottomright')" label="Pendaftaran" icon="pi pi-question-circle"
-            class="sticky p-button-rounded p-button-warning"
+        <Button @click="openPosition('bottomright')" label="Informasi" icon="pi pi-question-circle"
+            class="sticky mr-3 p-button-rounded p-button-warning"
             style="bottom:2%;float: right;box-shadow: 2px 2px 3px #1d1d1d" />
         <Dialog header="Informasi" v-model:visible="displayPosition" :breakpoints="{ '640px': '75vw' }"
             :style="{ width: '20vw' }" :position="position" :modal="true">
-            <p class="text-center">Untuk pendaftaran dan informasi lebih lanjut silahkan kunjungi booth kami.</p>
-            <p class="text-center">Terima Kasih</p>
-            <template #footer>
-                <Button label="Done" icon="pi pi-check" @click="closePosition" class="p-button-text" />
-            </template>
+            <div class="text-center mt-4">
+                <span>informasi lebih lanjut hubungi:</span>
+                <p class="font-bold">Ibu Khusnul Khasanah</p>
+                <NuxtLink to="https://wa.me/628119393489"><Button label="Whatsapp" icon="pi pi-whatsapp"
+                        @click="closePosition" class="p-button-text"></Button></NuxtLink>
+            </div>
         </Dialog>
     </div>
-
 </template>
 
 <script setup>
