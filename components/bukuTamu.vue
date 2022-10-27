@@ -20,8 +20,8 @@
                 <div class="mb-2">
                     <label for="email" class="block text-900 font-medium mb-2">Email<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="email" name="email" :rules="isRequired" v-model="data.email" />
-                    <ErrorMessage name="email"><small style="color:red;">email harus diisi</small></ErrorMessage>
+                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" />
+                    <small style="color:red;"><ErrorMessage name="email" /></small>
                 </div>
                 <div class="mb-2">
                     <div class="formgrid grid">
@@ -69,6 +69,19 @@ const isRequired = (value) => {
     }
     return true;
 };
+
+const validateEmail = (value) => {
+    isRequired(value)
+    // if the field is not a valid email
+    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!regex.test(value)) {
+        return 'Alamat email harus valid';
+    }
+    // All is good
+    return true;
+}
+
+
 const masuk = () => {
     try {
         axios.post("http://localhost:3000/api/landing/guests", {
