@@ -1,26 +1,26 @@
 <template>
-    <div class="surface-card px-4 md:px-6 py-2 shadow-6 border-round w-full">
+    <div class="md:px-6 py-2 border-round w-full" style="background-color: #FAA922;">
         <Toast />
-            <h1 class="text-3xl text-white">Subscribe untuk melihat lowongan kami</h1>
+            <h1 class="text-3xl text-white">Buku Tamu</h1>
         <hr>
         <Form>
             <div class="card">
                 <div class="mb-2">
                     <label for="nama" class="block text-900 font-medium mb-2">Nama<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama" />
+                    <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama" style="background-color: white; color: black;"></Field>
                     <ErrorMessage name="nama"><small style="color:red;">Nama harus diisi</small></ErrorMessage>
                 </div>
                 <div class="mb-2">
                     <label for="nohp" class="block text-900 font-medium mb-2">No. HP<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" />
+                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" style="background-color: white;"></Field>
                     <ErrorMessage name="nohp"><small style="color:red;">No HP harus diisi</small></ErrorMessage>
                 </div>
                 <div class="mb-2">
                     <label for="email" class="block text-900 font-medium mb-2">Email<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" />
+                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" style="background-color: white;"></Field>
                     <small style="color:red;"><ErrorMessage name="email" /></small>
                 </div>
                 <div class="mb-2">
@@ -29,7 +29,7 @@
                             <label for="jurusan" class="block text-900 font-medium mb-2">Jurusan<span
                                     style="color:red;">*</span></label>
                             <Field class="w-full mb-3" id="jurusan" name="jurusan" :rules="isRequired"
-                                v-model="data.jurusan" />
+                                v-model="data.jurusan" style="background-color: white;"></Field>
                             <ErrorMessage name="jurusan"><small style="color:red;">Jurusan harus diisi</small>
                             </ErrorMessage>
                         </div>
@@ -37,7 +37,7 @@
                             <label for="Angkatan" class="block text-900 font-medium mb-2">Angkatan<span
                                     style="color:red;">*</span></label>
                             <Field class="w-full mb-3" id="Angkatan" name="Angkatan" :rules="isRequired"
-                                v-model="data.angkatan" />
+                                v-model="data.angkatan" style="background-color: white;"></Field>
                             <ErrorMessage name="Angkatan"><small style="color:red;">Angkatan harus diisi</small>
                             </ErrorMessage>
                         </div>
@@ -84,7 +84,7 @@ const validateEmail = (value) => {
 
 const masuk = () => {
     try {
-        axios.post("http://localhost:3000/api/landing/guests", {
+        axios.post("http://localhost:3005/api/landing/guests", {
             name: data.nama,
             phone: data.noHp,
             major: data.jurusan,
