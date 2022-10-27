@@ -17,7 +17,7 @@
         </div>
         <div class="col-12 md:col-6 overflow-hidden p-6 container-md mb-6">
             <AosVue animation="fade-right" :duration="1500">
-            <img src="~/assets/undraw_Content_team_re_6rlg.svg" alt="Image" class="md:ml-auto block md:h-full md:mr-6"
+            <img src="~/assets/undraw_content_team_re_6rlg.svg" alt="Image" class="md:ml-auto block md:h-full md:mr-6"
                 style="width: 80%;">
             </AosVue>
         </div>
