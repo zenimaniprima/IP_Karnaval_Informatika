@@ -1,13 +1,13 @@
 <template>
-    <div class="grid grid-nogutter text-800 container" style="background-color: #097e53;">
+    <div class="grid grid-nogutter text-800 container" style="background-color: #129666;">
         <div class="col-12 p-6 mt-2 md:col-6 md:p-4 text-center md:text-left block align-items-center ">
             <section class="md:ml-6">
                 <AosVue animation="fade-down" :duration="500">
-                    <div class="text-7xl font-bold" style="color: #feaa09;">IMANI PRIMA</div>
+                    <!-- <div class="text-7xl font-bold" style="color: #feaa09;">IMANI PRIMA</div> -->
+                    <img src="~/assets/logo-putih.png" />
                 </AosVue>
                 <AosVue animation="zoom-in" :delay="500" :duration="500">
-                    <p class="text-white mb-4">bosen dengan kerjaan IT yang itu itu aja, yuk berpetualang bersama kami
-                        menelusuri tantangan baru di dunia IoT</p>
+                <p class="text-3xl text-white mb-4"><b>Saya Memiliki Kualifikasi</b></p>
                 </AosVue>
                 <AosVue animation="fade-right" :delay="1000" :duration="1000">
                     <BukuTamu />
