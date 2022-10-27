@@ -2,7 +2,7 @@
   <div>
     <Head>
       <Title>Imani Prima Loker</Title>
-      <Link rel="icon" type="image/x-icon" href="http://presensi.imaniprima.co.id/assets/images/favicon.png"></Link>
+      <Link rel="icon" type="image/png" href="/img/favicon.png"></Link>
     </Head>
     <NuxtLayout>
       <NuxtPage />
@@ -10,6 +10,8 @@
   </div>
 </template>
 
+<script setup>
+</script>
 <style>
 body {
   margin: 0;
