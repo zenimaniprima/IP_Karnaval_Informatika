@@ -1,9 +1,8 @@
 <template>
-
     <div class="bg-bluegray-900 text-gray-100 p-3 flex justify-content-center align-items-center">
-
         <div class="align-items-center text-sm lg:flex mr-6">
-            <span class="line-height-3">🔥 like/follow/subscribe sosial media kami untuk mendapatkan merchandise</span>
+            <span class="line-height-3">🔥 like/follow/subscribe sosial media kami untuk mendapatkan
+                merchandise</span>
         </div>
         <div class="align-items-center lg:flex">
             <span class="line-height-3 flex" style="cursor:pointer;">
@@ -17,7 +16,6 @@
         </div>
     </div>
     <div class="px-3 py-8 md:px-6 text-center block container" style="background-color: #21364A;">
-
         <div class="mb-2 font-bold text-5xl">
             <span class="text-900">Lowongan Kerja, </span>
             <span class="text-primary">PT. Imani Prima</span>
@@ -33,10 +31,36 @@
                 </template>
             </Card>
         </div>
+
+        <Button @click="openPosition('bottomright')" label="Pendaftaran" icon="pi pi-question-circle"
+            class="sticky p-button-rounded p-button-warning"
+            style="bottom:2%;float: right;box-shadow: 2px 2px 3px #1d1d1d" />
+        <Dialog header="Informasi" v-model:visible="displayPosition"
+                :breakpoints="{'640px': '75vw' }" :style="{ width: '20vw' }" :position="position"
+                :modal="true">
+                <p class="text-center">Untuk pendaftaran dan informasi lebih lanjut silahkan kunjungi booth kami.</p><p class="text-center">Terima Kasih</p>
+                <template #footer>
+                    <Button label="Done" icon="pi pi-check" @click="closePosition" class="p-button-text" />
+                    
+                </template>
+            </Dialog>
     </div>
+
 </template>
 
 <script setup>
+const displayPosition = ref(false);
+const position = ref('center');
+
+const openPosition = (pos) => {
+    position.value = pos;
+    displayPosition.value = true;
+};
+const closePosition = () => {
+    displayPosition.value = false;
+};
+
+
 const jobs = reactive([
     {
         nama: "HRD",
@@ -72,3 +96,13 @@ const jobs = reactive([
     }
 ]);
 </script>
+
+<style>
+.float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    text-align: center;
+    margin-top: 22px;
+}
+</style>
