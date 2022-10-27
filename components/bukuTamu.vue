@@ -4,7 +4,7 @@
             <h1 class="text-3xl text-white">Buku Tamu</h1>
         <hr>
         <Form>
-            <div class="card">
+            <div class="card p-3">
                 <div class="mb-2">
                     <label for="nama" class="block text-900 font-medium mb-2">Nama<span
                             style="color:red;">*</span></label>

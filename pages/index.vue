@@ -24,9 +24,7 @@
 </template>
 
 <style>
-a {
-    text-decoration: none;
-}
+
 
 .container-md {
     min-height: 20vh;
