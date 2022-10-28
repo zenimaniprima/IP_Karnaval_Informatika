@@ -24,7 +24,7 @@
                         <Button iconClass="text-2xl md:text-3xl" icon="pi pi-linkedin"
                             class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     </a>
-                    <Button iconClass="text-2xl md:text-3xl" icon="pi pi-send" @click="shareLink"
+                    <Button iconClass="text-2xl md:text-3xl" icon="pi pi-share-alt" @click="shareLink"
                         class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     <Dialog header="Copy Link" v-model:visible="displayLink" :breakpoints="{ '640px': '75vw' }"
                         :style="{ width: '30vw' }" :modal="true">
@@ -60,8 +60,8 @@
             :style="{ width: '20vw' }" :position="position" :modal="true">
             <div class="text-center mt-4">
                 <span>informasi lebih lanjut hubungi:</span>
-                <p class="font-bold">Ibu Khusnul Khasanah</p>
-                <NuxtLink to="https://wa.me/628119393489"><Button label="Whatsapp" icon="pi pi-whatsapp"
+                <p class="font-bold">Ibugit  Khusnul Khasanah</p>
+                <NuxtLink to="https://wa.me/628119393489?text=permisi%20,saya%20tertarik%20dengan%20Lowongan%20Imani%20Prima.%20Boleh%20saya%20mendapat%20informasi%20lebih%20lanjut"><Button label="Whatsapp" icon="pi pi-whatsapp"
                         @click="closePosition" class="p-button-text"></Button></NuxtLink>
             </div>
         </Dialog>
