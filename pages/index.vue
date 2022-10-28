@@ -7,21 +7,19 @@
                     <img src="~/assets/logo-putih.png" />
                 </AosVue>
                 <AosVue animation="zoom-in" :delay="500" :duration="500">
-                <p class="text-3xl text-white mb-4"><b>Anda layak jadi asset kami</b></p>
+                    <p class="text-3xl text-white mb-4"><b>Anda layak jadi asset kami</b></p>
                 </AosVue>
-                    <BukuTamu />
+                <BukuTamu />
             </section>
         </div>
         <div class="col-12 md:col-6 overflow-hidden p-6 container-md mb-6">
-                <img src="~/assets/undraw_content_team_re_6rlg.svg" alt="Image"
-                    class="md:ml-auto block md:h-full md:mr-6" style="width: 80%;">
+            <img src="~/assets/undraw_content_team_re_6rlg.svg" alt="Image" class="md:ml-auto block md:h-full md:mr-6"
+                style="width: 80%;">
         </div>
     </div>
 </template>
 
 <style>
-
-
 .container-md {
     min-height: 20vh;
     display: flex;

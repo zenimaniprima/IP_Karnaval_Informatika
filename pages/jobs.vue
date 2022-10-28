@@ -1,5 +1,6 @@
 <template>
     <div class="bg-bluegray-900 text-gray-100 p-3 text-center block container">
+        <Toast />
         <AosVue animation="slide-down">
             <div class="align-items-center col-12">
                 <span class="line-height-3">like/follow/subscribe semua sosial media kami untuk mendapatkan merchandise
@@ -9,20 +10,30 @@
                 <span class="line-height-3" style="cursor:pointer;">
                     <a href="https://www.facebook.com/PTImaniPrima/" target="_blank">
                         <Button iconClass="text-2xl md:text-3xl" icon="pi pi-facebook"
-                            class="p-button-rounded p-button-outlined mx-3" />
+                            class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     </a>
                     <a href="https://www.instagram.com/imaniprima/" target="_blank">
                         <Button iconClass="text-2xl md:text-3xl" icon="pi pi-instagram"
-                            class="p-button-rounded p-button-outlined mx-3" />
+                            class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     </a>
                     <a href="https://www.youtube.com/channel/UC9ONViZhn_fJLN9ciKDESzw/" target="_blank">
                         <Button iconClass="text-2xl md:text-3xl" icon="pi pi-youtube"
-                            class="p-button-rounded p-button-outlined mx-3" />
+                            class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     </a>
                     <a href="https://www.linkedin.com/company/pt-imani-prima/" target="_blank">
                         <Button iconClass="text-2xl md:text-3xl" icon="pi pi-linkedin"
-                            class="p-button-rounded p-button-outlined mx-3" />
+                            class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
                     </a>
+                    <Button iconClass="text-2xl md:text-3xl" icon="pi pi-send" @click="shareLink"
+                        class="p-button-rounded p-button-outlined p-button-sm mx-1 md:mx-3" />
+                    <Dialog header="Copy Link" v-model:visible="displayLink" :breakpoints="{ '640px': '75vw' }"
+                        :style="{ width: '30vw' }" :modal="true">
+                        <div class="block">
+                            <InputText v-model="link" class="w-8"></InputText>
+                            <Button label="Copy" @click="copy" class="p-button-text p-button-warning p-button-sm m-1"
+                                autofocus />
+                        </div>
+                    </Dialog>
                 </span>
             </div>
         </AosVue>
@@ -58,6 +69,10 @@
 </template>
 
 <script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const link = "http://recruitment.imaniprima.co.id"
 
 const displayPosition = ref(false);
 const position = ref('center');
@@ -87,6 +102,16 @@ const openPosition = (pos) => {
 const closePosition = () => {
     displayPosition.value = false;
 };
+const displayLink = ref(false);
+const shareLink = () => {
+    displayLink.value = !displayLink.value;
+
+};
+const copy = () => {
+    navigator.clipboard.writeText(link);
+    toast.add({ severity: "warn", summary: "Link Copied !" });
+    return shareLink();
+}
 
 const jobs = reactive([
     {

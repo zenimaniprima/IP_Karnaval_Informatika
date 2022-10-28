@@ -14,13 +14,13 @@
                 <div class="mb-2">
                     <label for="nohp" class="block text-900 font-medium mb-2">No. HP<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" style="background-color: white;"></Field>
+                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" style="background-color: white; color: black;"></Field>
                     <ErrorMessage name="nohp"><small style="color:red;">No HP harus diisi</small></ErrorMessage>
                 </div>
                 <div class="mb-2">
                     <label for="email" class="block text-900 font-medium mb-2">Email<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" style="background-color: white;"></Field>
+                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" style="background-color: white; color: black;"></Field>
                     <small style="color:red;"><ErrorMessage name="email" /></small>
                 </div>
                 <div class="mb-2">
@@ -29,7 +29,7 @@
                             <label for="jurusan" class="block text-900 font-medium mb-2">Jurusan<span
                                     style="color:red;">*</span></label>
                             <Field class="w-full mb-3" id="jurusan" name="jurusan" :rules="isRequired"
-                                v-model="data.jurusan" style="background-color: white;"></Field>
+                                v-model="data.jurusan" style="background-color: white; color: black;"></Field>
                             <ErrorMessage name="jurusan"><small style="color:red;">Jurusan harus diisi</small>
                             </ErrorMessage>
                         </div>
@@ -37,7 +37,7 @@
                             <label for="Angkatan" class="block text-900 font-medium mb-2">Angkatan<span
                                     style="color:red;">*</span></label>
                             <Field class="w-full mb-3" id="Angkatan" name="Angkatan" :rules="isRequired"
-                                v-model="data.angkatan" style="background-color: white;"></Field>
+                                v-model="data.angkatan" style="background-color: white; color: black;"></Field>
                             <ErrorMessage name="Angkatan"><small style="color:red;">Angkatan harus diisi</small>
                             </ErrorMessage>
                         </div>
@@ -52,7 +52,6 @@
 <script setup>
 import axios from 'axios';
 import { useToast } from "primevue/usetoast";
-
 const toast = useToast();
 
 const data = reactive({
