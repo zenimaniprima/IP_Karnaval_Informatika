@@ -1,5 +1,5 @@
 <template>
-    <div class="md:px-6 py-2 border-round w-full" style="background-color: #FAA922;">
+    <div class="md:px-6 py-2 w-full" style="background-color: #FAA922; border-radius: 20px;">
         <Toast />
         <h1 class="text-3xl text-white">Buku Tamu</h1>
         <hr>
