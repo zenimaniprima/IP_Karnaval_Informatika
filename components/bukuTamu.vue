@@ -1,27 +1,32 @@
 <template>
     <div class="md:px-6 py-2 border-round w-full" style="background-color: #FAA922;">
         <Toast />
-            <h1 class="text-3xl text-white">Buku Tamu</h1>
+        <h1 class="text-3xl text-white">Buku Tamu</h1>
         <hr>
         <Form>
             <div class="card p-3">
                 <div class="mb-2">
                     <label for="nama" class="block text-900 font-medium mb-2">Nama<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama" style="background-color: white; color: black;"></Field>
+                    <Field class="w-full mb-3" id="nama" name="nama" :rules="isRequired" v-model="data.nama"
+                        style="background-color: white; color: black;"></Field>
                     <ErrorMessage name="nama"><small style="color:red;">Nama harus diisi</small></ErrorMessage>
                 </div>
                 <div class="mb-2">
                     <label for="nohp" class="block text-900 font-medium mb-2">No. HP<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp" style="background-color: white; color: black;"></Field>
+                    <Field class="w-full mb-3" id="nohp" name="nohp" :rules="isRequired" v-model="data.noHp"
+                        style="background-color: white; color: black;"></Field>
                     <ErrorMessage name="nohp"><small style="color:red;">No HP harus diisi</small></ErrorMessage>
                 </div>
                 <div class="mb-2">
                     <label for="email" class="block text-900 font-medium mb-2">Email<span
                             style="color:red;">*</span></label>
-                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email" style="background-color: white; color: black;"></Field>
-                    <small style="color:red;"><ErrorMessage name="email" /></small>
+                    <Field class="w-full mb-3" id="email" name="email" :rules="validateEmail" v-model="data.email"
+                        style="background-color: white; color: black;"></Field>
+                    <small style="color:red;">
+                        <ErrorMessage name="email" />
+                    </small>
                 </div>
                 <div class="mb-2">
                     <div class="formgrid grid">
@@ -83,12 +88,15 @@ const validateEmail = (value) => {
 
 const masuk = () => {
     try {
-        axios.post("http://localhost:3005/api/landing/guests", {
-            name: data.nama,
-            phone: data.noHp,
-            major: data.jurusan,
-            generation: data.angkatan,
-            email: data.email,
+        $fetch("http://localhost:3005/api/landing/guests", {
+            method: 'POST',
+            body: {
+                name: data.nama,
+                phone: data.noHp,
+                major: data.jurusan,
+                generation: data.angkatan,
+                email: data.email,
+            }
         }).then(() => {
             toast.add({ severity: "info", summary: "Enjoy the Carnaval" });
             location.href = "/jobs"
